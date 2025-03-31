@@ -16,4 +16,10 @@ function getSingleArticle(articleId) {
   });
 }
 
-export { getArticles, getSingleArticle };
+function getComments(articleId) {
+    return api.get(`/articles/${articleId}/comments`).then(({ data }) => {
+      return data.comments;
+    });
+  }
+
+export { getArticles, getSingleArticle, getComments };
