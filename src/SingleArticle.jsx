@@ -3,6 +3,7 @@ import { getSingleArticle } from "../api";
 import { useState, useEffect } from "react";
 import convertToISODate from "../utils";
 import TimeAgo from "react-timeago";
+import Comments from "./Comments";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -33,7 +34,7 @@ function SingleArticle() {
   return (
     <div className="single-article">
       <p>{article.topic}</p>
-      <p>{article.author}</p>
+      <p className="author">{article.author}</p>
       <p>
         <TimeAgo date={convertToISODate(article.created_at)} />
       </p>
@@ -44,6 +45,7 @@ function SingleArticle() {
       <div className="reactions">
       <p className="pill">{article.votes} votes</p>
       <p className="pill">{article.comment_count} comments</p></div>
+      <Comments article_id={article.article_id}/>
     </div>
   );
 }

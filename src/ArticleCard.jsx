@@ -7,7 +7,7 @@ function ArticleCard({ article }) {
   return (
     <li className="article-card">
     <div className="article-info">
-      <p>{article.author}</p>
+      <p className="author">{article.author}</p>
       <p><Link to={`/articles/${article.article_id}`}>{article.title}</Link></p>
       <p>
         <TimeAgo date={convertToISODate(article.created_at)} />

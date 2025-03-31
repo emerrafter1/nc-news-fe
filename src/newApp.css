@@ -31,7 +31,8 @@ ul {
   justify-content: center;
 }
 
-li img, img {
+li img,
+img {
   max-width: 100%;
   height: auto;
   padding: 10px;
@@ -42,17 +43,28 @@ li img, img {
   background-color: rgb(230, 231, 232);
   border-radius: 15px;
   text-align: center;
+  padding: 6px;
 }
 
 .single-article {
-    border: 1px solid black;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-card {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.author {
+    font-weight: bold;
 }
