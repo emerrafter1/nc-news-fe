@@ -5,9 +5,15 @@ const api = axios.create({
 });
 
 function getArticles() {
-  return api.get("/articles").then(({data}) => {
+  return api.get("/articles").then(({ data }) => {
     return data.articles;
   });
 }
 
-export { getArticles };
+function getSingleArticle(articleId) {
+  return api.get(`/articles/${articleId}`).then(({ data }) => {
+    return data.article;
+  });
+}
+
+export { getArticles, getSingleArticle };

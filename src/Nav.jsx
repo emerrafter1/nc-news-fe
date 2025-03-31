@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
+
 function Nav(){
     return (<nav>
-        <p>Placeholder navigation</p>
+       <Link to="/">Home(Logo TBC)</Link>
     </nav>)
 }
 
