@@ -12,7 +12,6 @@ function Articles() {
     setError(false);
     getArticles()
       .then((data) => {
-        console.log(data);
         setArticles(data);
       })
       .catch(() => {
@@ -31,7 +30,7 @@ function Articles() {
     <section className="articles-list">
       <ul>
         {articles.map((article) => {
-          return <ArticleCard article={article} key={article.article_id}/>;
+          return <ArticleCard article={article} key={article.article_id} />;
         })}
       </ul>
     </section>
