@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import convertToISODate from "../utils";
 import TimeAgo from "react-timeago";
 import Comments from "./Comments";
+import VotesHandler from "./votesHandler";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -43,9 +44,11 @@ function SingleArticle() {
 
       <img src={article.article_img_url} />
       <div className="reactions">
-      <p className="pill">{article.votes} votes</p>
-      <p className="pill">{article.comment_count} comments</p></div>
-      <Comments article_id={article.article_id}/>
+        <VotesHandler article={article} />
+
+        <p className="pill">{article.comment_count} comments</p>
+      </div>
+      <Comments article_id={article.article_id} />
     </div>
   );
 }
