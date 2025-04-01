@@ -30,4 +30,11 @@ function updateArticleVotes(articleId, votes){
         }) 
 }
 
-export { getArticles, getSingleArticle, getComments, updateArticleVotes };
+function postComment(articleId, body){
+    return api.post(`/articles/${articleId}/comments`, {username: "happyamy2016", body: body}).then(({data}) => {
+        console.log(data)
+        return data.comment;
+    })
+}
+
+export { getArticles, getSingleArticle, getComments, updateArticleVotes, postComment };

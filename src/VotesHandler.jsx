@@ -32,7 +32,7 @@ function VotesHandler({ article }) {
           <img src={downArrow} />
         </button>
       </div>
-      {error ? <p>{error}</p> : null}
+      {error ? <p className="error">{error}</p> : null}
     </>
   );
 }

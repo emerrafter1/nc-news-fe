@@ -1,6 +1,8 @@
 * {
   border: 1px solid lightgrey;
+  color: black;
 }
+
 
 #root {
   text-align: center;
@@ -17,6 +19,15 @@ body,
 ul {
   list-style: none;
   padding: 0px 10px 0px 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.comment-list {
+    margin: 0px;
+    padding: 0px;
 }
 
 .article-card {
@@ -48,6 +59,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 0px;
+  margin: 10px;
 }
 
 .single-article {
@@ -93,5 +105,44 @@ img {
     padding: 0px;
     align-items: center;
     justify-content: center;
+    border: none;
     
 }
+
+button {
+    border: 1px solid black;
+}
+
+
+#add-comment-form {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loadingSpinner {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    align-items: center;
+    margin: 10px;
+    
+  }
+
+  .loadingSpinner p {
+    margin: 0px;
+    padding: 0px;
+    }
+
+    header{
+        margin: 20px;
+    }
+
+    .error {
+        color:red;
+    }
