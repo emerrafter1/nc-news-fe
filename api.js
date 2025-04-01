@@ -22,4 +22,12 @@ function getComments(articleId) {
     });
   }
 
-export { getArticles, getSingleArticle, getComments };
+function updateArticleVotes(articleId, votes){
+    return api.patch(`/articles/${articleId}`, {
+        "inc_votes": votes
+        }).then(({data}) => {
+            return data.article;
+        }) 
+}
+
+export { getArticles, getSingleArticle, getComments, updateArticleVotes };

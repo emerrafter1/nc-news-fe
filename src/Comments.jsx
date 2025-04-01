@@ -30,10 +30,10 @@ function Comments({ article_id }) {
     <section className="comments-list">
       <h2>Comments</h2>
       <ul>
-        {comments.map((comment) => {
-          console.log(comment);
+        {comments.length > 0 
+        ? comments.map((comment) => {
           return <CommentCard comment={comment} key={comment.comment_id} />;
-        })}
+        }) : <p>There are not comments yet.</p>}
       </ul>
     </section>
   );
