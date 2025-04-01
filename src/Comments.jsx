@@ -1,8 +1,9 @@
 import { getComments } from "../api";
 import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
+import CommentAdder from "./CommentAdder";
 
-function Comments({ article_id }) {
+function Comments({ article_id, commentCount }) {
   const [comments, setComments] = useState([]);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,11 +30,20 @@ function Comments({ article_id }) {
   return (
     <section className="comments-list">
       <h2>Comments</h2>
+      <CommentAdder
+        comments={comments}
+        setComments={setComments}
+        article_id={article_id}
+      />
+
       <ul>
-        {comments.length > 0 
-        ? comments.map((comment) => {
-          return <CommentCard comment={comment} key={comment.comment_id} />;
-        }) : <p>There are not comments yet.</p>}
+        {comments.length > 0 ? (
+          comments.map((comment) => {
+            return <CommentCard comment={comment} key={comment.comment_id} />;
+          })
+        ) : (
+          <p>There are no comments yet.</p>
+        )}
       </ul>
     </section>
   );
