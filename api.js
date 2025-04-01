@@ -17,24 +17,43 @@ function getSingleArticle(articleId) {
 }
 
 function getComments(articleId) {
-    return api.get(`/articles/${articleId}/comments`).then(({ data }) => {
-      return data.comments;
-    });
-  }
-
-function updateArticleVotes(articleId, votes){
-    return api.patch(`/articles/${articleId}`, {
-        "inc_votes": votes
-        }).then(({data}) => {
-            return data.article;
-        }) 
+  return api.get(`/articles/${articleId}/comments`).then(({ data }) => {
+    return data.comments;
+  });
 }
 
-function postComment(articleId, body){
-    return api.post(`/articles/${articleId}/comments`, {username: "happyamy2016", body: body}).then(({data}) => {
-        console.log(data)
-        return data.comment;
+function updateArticleVotes(articleId, votes) {
+  return api
+    .patch(`/articles/${articleId}`, {
+      inc_votes: votes,
     })
+    .then(({ data }) => {
+      return data.article;
+    });
 }
 
-export { getArticles, getSingleArticle, getComments, updateArticleVotes, postComment };
+function postComment(articleId, body) {
+  return api
+    .post(`/articles/${articleId}/comments`, {
+      username: "happyamy2016",
+      body: body,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+}
+
+function deleteComment(commentId) {
+  return api.delete(`/comments/${commentId}`).then(({ data }) => {
+    return "Your comment has been successfully deleted."
+  });
+}
+
+export {
+  getArticles,
+  getSingleArticle,
+  getComments,
+  updateArticleVotes,
+  postComment,
+  deleteComment
+};
