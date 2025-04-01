@@ -23,7 +23,7 @@ function Comments({ article_id, commentCount }) {
       });
   }, []);
 
-  if (error) return <p>Oops!</p>;
+  if (error) return <p className="error">Oops!</p>;
 
   if (isLoading) return <p>Just a sec ...</p>;
 
@@ -36,7 +36,7 @@ function Comments({ article_id, commentCount }) {
         article_id={article_id}
       />
 
-      <ul>
+      <ul className="comment-list">
         {comments.length > 0 ? (
           comments.map((comment) => {
             return <CommentCard comment={comment} key={comment.comment_id} />;

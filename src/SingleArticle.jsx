@@ -13,12 +13,14 @@ function SingleArticle() {
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
     setIsLoading(true);
     setError(false);
     getSingleArticle(article_id)
       .then((data) => {
         setArticle(data);
+       
       })
       .catch(() => {
         setError(true);
@@ -28,7 +30,7 @@ function SingleArticle() {
       });
   }, []);
 
-  if (error) return <p>Oops!</p>;
+  if (error) return <p className="error">Oops!</p>;
 
   if (isLoading) return <p>Just a sec ...</p>;
 
@@ -48,7 +50,8 @@ function SingleArticle() {
 
         <p className="pill">{article.comment_count} comments</p>
       </div>
-      <Comments article_id={article.article_id} />
+
+      <Comments article_id={article.article_id}  />
     </div>
   );
 }
