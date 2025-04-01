@@ -5,56 +5,48 @@ import LoadingSpinner from "./LoadingSpinner";
 function CommentAdder({ comments, setComments, article_id }) {
   const [commentInput, setCommentInput] = useState("");
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleAddComment(event) {
-    setIsLoading(true)
+    setIsLoading(true);
     setError(null);
     event.preventDefault();
-    if(commentInput.trim().length < 1) return setError("Comment cannot be empty!")
+    if (commentInput.trim().length < 1) {
+      setIsLoading(false);
+      return setError("Comment cannot be empty!");
+    }
     postComment(article_id, commentInput)
       .then((addedComment) => {
-       
         setCommentInput("");
         setComments([addedComment, ...comments]); //comment goes to top
-        
       })
       .catch((error) => {
         console.log(error);
         setError("Your comment failed to post! Please try again.");
-      }).finally(() => {
-        setIsLoading(false)
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   if (isLoading) {
-
-    return (
-      
-        <LoadingSpinner loadingMessage={`Adding comment...`}/>
-      
-    );
+    return <LoadingSpinner loadingMessage={`Adding comment...`} />;
   }
-
-
-
 
   function handleCommentInputChange(event) {
     setCommentInput(event.target.value);
   }
 
   return (
-  
-      <form id="add-comment-form" onSubmit={handleAddComment}>
-        <textarea
-          placeholder="Add a comment"
-          value={commentInput}
-          onChange={handleCommentInputChange}
-        ></textarea>
-        {error ? <p>{error}</p> : null}
-        <button type="submit">Comment</button>
-      </form>
-  
+    <form id="add-comment-form" onSubmit={handleAddComment}>
+      <textarea
+        placeholder="Add a comment"
+        value={commentInput}
+        onChange={handleCommentInputChange}
+      ></textarea>
+      {error ? <p className="error">{error}</p> : null}
+      <button type="submit">Comment</button>
+    </form>
   );
 }
 
