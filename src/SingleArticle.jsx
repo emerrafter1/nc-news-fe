@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import convertToISODate from "../utils";
 import TimeAgo from "react-timeago";
 import Comments from "./Comments";
-import VotesHandler from "./votesHandler";
+import VotesHandler from "./VotesHandler.jsx";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -13,14 +13,12 @@ function SingleArticle() {
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-
   useEffect(() => {
     setIsLoading(true);
     setError(false);
     getSingleArticle(article_id)
       .then((data) => {
         setArticle(data);
-       
       })
       .catch(() => {
         setError(true);
@@ -51,7 +49,7 @@ function SingleArticle() {
         <p className="pill">{article.comment_count} comments</p>
       </div>
 
-      <Comments article_id={article.article_id}  />
+      <Comments article_id={article.article_id} />
     </div>
   );
 }
