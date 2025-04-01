@@ -19,6 +19,15 @@ body,
 ul {
   list-style: none;
   padding: 0px 10px 0px 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.comment-list {
+    margin: 0px;
+    padding: 0px;
 }
 
 .article-card {
@@ -128,4 +137,12 @@ button {
   .loadingSpinner p {
     margin: 0px;
     padding: 0px;
+    }
+
+    header{
+        margin: 20px;
+    }
+
+    .error {
+        color:red;
     }
