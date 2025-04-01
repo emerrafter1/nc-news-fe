@@ -20,8 +20,8 @@ function CommentAdder({ comments, setComments, article_id }) {
         setCommentInput("");
         setComments([addedComment, ...comments]); //comment goes to top
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+    
         setError("Your comment failed to post! Please try again.");
       })
       .finally(() => {
