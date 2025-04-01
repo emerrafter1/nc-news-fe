@@ -5,10 +5,12 @@ import Nav from "./Nav";
 import Articles from "./Articles";
 import SingleArticle from "./SingleArticle";
 import { Routes, Route } from "react-router-dom";
+import { UserProvider } from "./contexts/User";
 
 function App() {
   return (
     <>
+    <UserProvider>
       <Header></Header>
       <Nav></Nav>
 
@@ -16,7 +18,9 @@ function App() {
         <Route path="/" element={<Articles />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
       </Routes>
+      </UserProvider>
     </>
+    
   );
 }
 
