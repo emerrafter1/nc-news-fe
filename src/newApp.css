@@ -25,26 +25,20 @@ ul {
   justify-content: center;
   margin: 0px;
 
-
   padding-left: 0px;
 }
 
 .articles-list {
+  gap: 10px;
+  margin: 0px;
+  padding: 0px;
+}
 
-    gap: 10px;
-    margin: 0px;
-    padding: 0px;
-  }
-
-
-  .articles-list ul {
-
-    gap: 10px;
-    margin: 10px;
-    padding: 0px;
-  }
-
-
+.articles-list ul {
+  gap: 10px;
+  margin: 10px;
+  padding: 0px;
+}
 
 ul #topics-list {
   display: flex;
@@ -236,7 +230,6 @@ p {
   font-weight: bold;
   font-size: 0.75em;
   gap: 10px;
-
 }
 
 .author {
@@ -244,21 +237,27 @@ p {
 }
 
 .card-heading .topic {
-    background-color:#e2e7e9;
-    border-radius: 15px;
-    padding: 5px;
-
+  background-color: #e2e7e9;
+  border-radius: 15px;
+  padding: 5px;
 }
 
-
 .topics-list {
-    display: flex;
+  display: flex;
 }
 
 .topic-heading {
-    font-weight:bold;
-    background-color:#e2e7e9;
-    border-radius: 15px;
-    padding: 5px;
-    margin: 20px;
+  font-weight: bold;
+  background-color: #e2e7e9;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 20px;
 }
+
+#sort-by-dropdown {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
