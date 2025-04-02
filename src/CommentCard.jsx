@@ -45,15 +45,17 @@ function CommentCard({ comment }) {
     <>
       {hideComment ? null : (
         <li className="comment-card">
-          <p className="author">{comment.author}</p>
-          <p>
-            <TimeAgo date={convertToISODate(comment.created_at)} />
-          </p>
+          <div className="card-heading">
+            <p>{comment.author}</p> <p>•</p>
+            <p>
+              <TimeAgo date={convertToISODate(comment.created_at)} />
+            </p>
+          </div>
           <p>{comment.body}</p>
           <div className="reactions">
             <p className="pill">{comment.votes} votes</p>
           </div>
-          {loggedInUser === comment.author && (
+          {loggedInUser.username === comment.author && (
             <button
               className="delete-comment-button"
               onClick={handleDeleteClick}

@@ -5,40 +5,35 @@ import convertToISODate from "../utils";
 import TimeAgo from "react-timeago";
 import Comments from "./Comments";
 import VotesHandler from "./VotesHandler.jsx";
+import useApiRequest from "./useApiRequest.jsx";
+import LoadingSpinner from "./LoadingSpinner.jsx";
 
 function SingleArticle() {
   const { article_id } = useParams();
 
-  const [article, setArticle] = useState([]);
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const {
+    data: article,
+    isLoading,
+    error,
+  } = useApiRequest(getSingleArticle, article_id);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setError(false);
-    getSingleArticle(article_id)
-      .then((data) => {
-        setArticle(data);
-      })
-      .catch(() => {
-        setError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  if (error) return <p className="error">Oops! Something went wrong...</p>;
 
-  if (error) return <p className="error">Oops!</p>;
-
-  if (isLoading) return <p>Just a sec ...</p>;
+  if (isLoading) {
+    return <LoadingSpinner loadingMessage={`Loading article...`} />;
+  }
 
   return (
     <div className="single-article">
-      <p>{article.topic}</p>
-      <p className="author">{article.author}</p>
-      <p>
-        <TimeAgo date={convertToISODate(article.created_at)} />
-      </p>
+      <div className="card-heading">
+        <p className="topic">{article.topic}</p>
+        <p>•</p>
+        <p>
+          <TimeAgo date={convertToISODate(article.created_at)} />
+        </p>
+        </div>
+        <p className="author">{article.author}</p>
+      
       <p>{article.title}</p>
       <p>{article.body}</p>
 
