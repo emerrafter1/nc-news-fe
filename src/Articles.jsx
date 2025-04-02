@@ -1,34 +1,29 @@
 import { getArticles } from "../api";
-import { useState, useEffect } from "react";
 import ArticleCard from "./ArticleCard";
+import useApiRequest from "./useApiRequest";
+import LoadingSpinner from "./LoadingSpinner";
+import { useParams } from "react-router-dom";
 
 function Articles() {
-  const [articles, setArticles] = useState([]);
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const { topic } = useParams();
 
-  useEffect(() => {
-    setIsLoading(true);
-    setError(false);
-    getArticles()
-      .then((data) => {
-        setArticles(data);
-      })
-      .catch(() => {
-        setError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  const {
+    data: articles,
+    isLoading,
+    error,
+  } = useApiRequest(getArticles, topic);
 
-  if (error) return <p>Oops!</p>;
+  if (error) return <p className="error">Oops! Something went wrong...</p>;
 
-  if (isLoading) return <p>Just a sec ...</p>;
+  if (isLoading) {
+    return <LoadingSpinner loadingMessage={`Loading articles...`} />;
+  }
 
   return (
     <section className="articles-list">
-      <ul>
+      {topic ? <p className="topic-heading">{topic}</p> : null}
+
+      <ul className="article-list">
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
         })}

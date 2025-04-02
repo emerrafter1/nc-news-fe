@@ -1,31 +1,23 @@
 import { getComments } from "../api";
-import { useState, useEffect } from "react";
+
 import CommentCard from "./CommentCard";
 import CommentAdder from "./CommentAdder";
+import useApiRequest from "./useApiRequest";
+import LoadingSpinner from "./LoadingSpinner";
 
-function Comments({ article_id, commentCount }) {
-  const [comments, setComments] = useState([]);
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+function Comments({ article_id }) {
+  const {
+    data: comments,
+    isLoading,
+    error,
+    setData: setComments,
+  } = useApiRequest(getComments, article_id);
 
-  useEffect(() => {
-    setIsLoading(true);
-    setError(false);
-    getComments(article_id)
-      .then((data) => {
-        setComments(data);
-      })
-      .catch(() => {
-        setError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+  if (error) return <p className="error">Oops! Something went wrong... </p>;
 
-  if (error) return <p className="error">Oops!</p>;
-
-  if (isLoading) return <p>Just a sec ...</p>;
+  if (isLoading) {
+    return <LoadingSpinner loadingMessage={`Loading comments...`} />;
+  }
 
   return (
     <section className="comments-list">
