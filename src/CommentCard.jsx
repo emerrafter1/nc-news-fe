@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import TimeAgo from "react-timeago";
-import convertToISODate from "../utils";
+import {convertToISODate} from "../utils";
 import { UserContext } from "./contexts/User.jsx";
 import { deleteComment } from "../api";
 import Button from "react-bootstrap/Button";
@@ -38,7 +38,7 @@ function CommentCard({ comment }) {
 
     setTimeout(() => {
       setShowToast(false);
-    }, 5000);
+    }, 3000);
   }
 
   return (
