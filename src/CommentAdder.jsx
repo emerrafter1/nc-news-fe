@@ -21,7 +21,6 @@ function CommentAdder({ comments, setComments, article_id }) {
         setComments([addedComment, ...comments]); //comment goes to top
       })
       .catch(() => {
-    
         setError("Your comment failed to post! Please try again.");
       })
       .finally(() => {
