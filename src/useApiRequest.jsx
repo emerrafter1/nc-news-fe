@@ -11,8 +11,8 @@ function useApiRequest(apiFunction, ...args){
         setIsLoading(true)
         apiFunction(...args).then((data) => {
             setData(data)
-        }).catch(() => {
-            setError("Oops! Something went wrong")
+        }).catch((error) => {
+            setError(error)
         })
         .finally(() => {
             setIsLoading(false)
