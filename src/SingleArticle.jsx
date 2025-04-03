@@ -17,7 +17,7 @@ function SingleArticle() {
     error,
   } = useApiRequest(getSingleArticle, article_id);
 
-  if (error) return (<ErrorComponent errorMessage={`Oops! Something went wrong...`}/>);
+  if (error) return (<ErrorComponent error={error}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading article...`} />;

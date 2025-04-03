@@ -13,7 +13,7 @@ function Comments({ article_id }) {
     setData: setComments,
   } = useApiRequest(getComments, article_id);
 
-  if (error) return (<ErrorComponent errorMessage={`Failed to load comments...`}/>);
+  if (error) return (<ErrorComponent error={error}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading comments...`} />;

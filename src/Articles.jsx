@@ -14,7 +14,7 @@ function Articles() {
     error,
   } = useApiRequest(getArticles, topic);
 
-  if (error) return (<ErrorComponent errorMessage={`Oops! Something went wrong...`}/>);
+  if (error) return (<ErrorComponent error={error}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading articles...`} />;
