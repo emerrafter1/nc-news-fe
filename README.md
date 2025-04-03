@@ -1,12 +1,50 @@
-# React + Vite
+# NC News App - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Deployed version
+[Live App](https://loquacious-peony-a555f2.netlify.app/)
 
-Currently, two official plugins are available:
+## Project Summary
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend for a content-sharing platform, where users can read articles, comment and react.
 
-## Expanding the ESLint configuration
+### App Features
+- Browse articles
+- Filter articles by topic
+- View individual article pages
+- Post and delete comments
+- Vote on articles
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Backend Repository
+[Link to Backend repository](https://github.com/emerrafter1/nc-news)
+
+## Tech Stack
+- React
+- Vite
+- Bootstrap
+- Node.js v22.12.0
+
+## Getting started
+
+### Cloning repository
+
+Repository can be cloned by running: `git clone https://github.com/emerrafter1/nc-news-fe.git`
+
+`cd nc-news-fe` to navigate to application folder
+
+### Installing dependencies
+
+Run `npm install` to install all relevant npm packages
+
+### Running locally
+
+Run `npm run dev` to run the project locally
+
+##
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
+
+
+
+
+
+
