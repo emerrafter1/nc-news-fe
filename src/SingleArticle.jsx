@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { getSingleArticle } from "../api";
-import convertToISODate from "../utils";
+import {convertToISODate} from "../utils";
 import TimeAgo from "react-timeago";
 import Comments from "./Comments";
 import VotesHandler from "./VotesHandler.jsx";

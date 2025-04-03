@@ -6,7 +6,7 @@ function Header(){
 
     const {loggedInUser} = useContext(UserContext)
     return (<header>
-        <Link to="/" id="home-link">NC News</Link>
+        <Link to="/" id="home-link"><h1>NC News</h1></Link>
 
 
         <div id="user-icon">
