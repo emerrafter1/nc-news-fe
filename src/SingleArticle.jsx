@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import { getSingleArticle } from "../api";
-import { useState, useEffect } from "react";
 import convertToISODate from "../utils";
 import TimeAgo from "react-timeago";
 import Comments from "./Comments";
 import VotesHandler from "./VotesHandler.jsx";
 import useApiRequest from "./useApiRequest.jsx";
 import LoadingSpinner from "./LoadingSpinner.jsx";
+import ErrorComponent from "./ErrorComponent.jsx";
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -17,7 +17,7 @@ function SingleArticle() {
     error,
   } = useApiRequest(getSingleArticle, article_id);
 
-  if (error) return <p className="error">Oops! Something went wrong...</p>;
+  if (error) return (<ErrorComponent errorMessage={`Oops! Something went wrong...`}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading article...`} />;

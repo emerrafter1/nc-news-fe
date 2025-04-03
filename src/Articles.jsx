@@ -3,6 +3,7 @@ import ArticleCard from "./ArticleCard";
 import useApiRequest from "./useApiRequest";
 import LoadingSpinner from "./LoadingSpinner";
 import { useParams } from "react-router-dom";
+import ErrorComponent from "./ErrorComponent";
 
 function Articles() {
   const { topic } = useParams();
@@ -13,7 +14,7 @@ function Articles() {
     error,
   } = useApiRequest(getArticles, topic);
 
-  if (error) return <p className="error">Oops! Something went wrong...</p>;
+  if (error) return (<ErrorComponent errorMessage={`Oops! Something went wrong...`}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading articles...`} />;
