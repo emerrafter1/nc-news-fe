@@ -1,9 +1,9 @@
 import { getComments } from "../api";
-
 import CommentCard from "./CommentCard";
 import CommentAdder from "./CommentAdder";
 import useApiRequest from "./useApiRequest";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorComponent from "./ErrorComponent";
 
 function Comments({ article_id }) {
   const {
@@ -13,7 +13,7 @@ function Comments({ article_id }) {
     setData: setComments,
   } = useApiRequest(getComments, article_id);
 
-  if (error) return <p className="error">Oops! Something went wrong... </p>;
+  if (error) return (<ErrorComponent error={error}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading comments...`} />;
@@ -27,7 +27,6 @@ function Comments({ article_id }) {
         setComments={setComments}
         article_id={article_id}
       />
-
       <ul className="comment-list">
         {comments.length > 0 ? (
           comments.map((comment) => {

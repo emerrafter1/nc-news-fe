@@ -2,12 +2,13 @@ import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 import useApiRequest from "./useApiRequest";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorComponent from "./ErrorComponent";
 import { useParams, useSearchParams } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useEffect, useState } from "react";
-
 import { getSortByLabel } from "../utils";
+
 
 function Articles() {
   const { topic } = useParams();
@@ -43,7 +44,7 @@ function Articles() {
     error,
   } = useApiRequest(getArticles, topic, sortBy, order);
 
-  if (error) return <p className="error">Oops! Something went wrong...</p>;
+  if (error) return (<ErrorComponent error={error}/>);
 
   if (isLoading) {
     return <LoadingSpinner loadingMessage={`Loading articles...`} />;

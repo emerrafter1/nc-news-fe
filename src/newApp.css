@@ -230,6 +230,10 @@ p {
   font-weight: bold;
   font-size: 0.75em;
   gap: 10px;
+
+  margin-bottom: 5px;
+
+
 }
 
 .author {
@@ -237,6 +241,19 @@ p {
 }
 
 .card-heading .topic {
+
+    background-color:#e2e7e9;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 0px;
+
+}
+
+
+nav .topics-list {
+    display: flex;
+    width: 200px;
+
   background-color: #e2e7e9;
   border-radius: 15px;
   padding: 5px;
@@ -244,6 +261,7 @@ p {
 
 .topics-list {
   display: flex;
+
 }
 
 .topic-heading {
@@ -254,10 +272,17 @@ p {
   margin: 20px;
 }
 
+
+
+.error-page {
+  margin: 10px;
+}
+
 #sort-by-dropdown {
   background-color: white;
   color: black;
   border: 1px solid black;
   border-radius: 15px;
 }
+
 
