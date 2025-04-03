@@ -236,6 +236,7 @@ p {
   font-weight: bold;
   font-size: 0.75em;
   gap: 10px;
+  margin-bottom: 5px;
 
 }
 
@@ -247,12 +248,14 @@ p {
     background-color:#e2e7e9;
     border-radius: 15px;
     padding: 5px;
+    margin-bottom: 0px;
 
 }
 
 
-.topics-list {
+nav .topics-list {
     display: flex;
+    width: 200px;
 }
 
 .topic-heading {
@@ -261,4 +264,9 @@ p {
     border-radius: 15px;
     padding: 5px;
     margin: 20px;
+}
+
+
+.error-page {
+  margin: 10px;
 }
