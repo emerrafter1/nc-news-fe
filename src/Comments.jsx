@@ -21,7 +21,7 @@ function Comments({ article_id }) {
 
   return (
     <section className="comments-list">
-      <h2>Comments</h2>
+ 
       <CommentAdder
         comments={comments}
         setComments={setComments}

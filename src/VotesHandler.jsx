@@ -23,7 +23,7 @@ function VotesHandler({ article }) {
 
   return (
     <>
-      <div className="pill">
+      <div className="votes">
         <button className="vote-button" onClick={() => handleClickVote(1)}>
           <img src={upArrow} />
         </button>

@@ -44,7 +44,7 @@ function CommentCard({ comment }) {
   return (
     <>
       {hideComment ? null : (
-        <li className="comment-card">
+        <li className="card">
           <div className="card-heading">
             <p>{comment.author}</p> <p>•</p>
             <p>
