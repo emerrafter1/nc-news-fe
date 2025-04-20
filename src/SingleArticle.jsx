@@ -7,6 +7,7 @@ import VotesHandler from "./VotesHandler.jsx";
 import useApiRequest from "./useApiRequest.jsx";
 import LoadingSpinner from "./LoadingSpinner.jsx";
 import ErrorComponent from "./ErrorComponent.jsx";
+import commentIcon from "./assets/commentIcon.svg"
 
 function SingleArticle() {
   const { article_id } = useParams();
@@ -24,24 +25,36 @@ function SingleArticle() {
   }
 
   return (
-    <div className="single-article">
-      <div className="card-heading">
-        <p className="topic">{article.topic}</p>
-        <p>•</p>
-        <p>
-          <TimeAgo date={convertToISODate(article.created_at)} />
-        </p>
-        </div>
-        <p className="author">{article.author}</p>
-      
-      <p>{article.title}</p>
-      <p>{article.body}</p>
+    <div className="article">
 
-      <img src={article.article_img_url} />
+<div className="article-info">
+       <div className="card-heading">
+            <p className="topic">{article.topic}</p>
+            <p>•</p>
+            <p className="article-time">
+              <TimeAgo date={convertToISODate(article.created_at)} />
+            </p>
+          </div>
+        <p className="author">{article.author}</p>
+        
+        </div>
+
+
+
+        <p className="article-title">{article.title}</p>
+        <p>{article.body}</p>
+
+        <img src={article.article_img_url} alt={article.title} className="article-img" />
+
+
+   
+
+
+      
       <div className="reactions">
         <VotesHandler article={article} />
 
-        <p className="pill">{article.comment_count} comments</p>
+        <div className="pill"><img src={commentIcon}/> {article.comment_count}</div>
       </div>
 
       <Comments article_id={article.article_id} />

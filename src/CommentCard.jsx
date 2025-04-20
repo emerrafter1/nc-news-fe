@@ -6,6 +6,7 @@ import { deleteComment } from "../api";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import ToastMessage from "./Toast.jsx";
+import binIcon from "./assets/binIcon.svg"
 
 function CommentCard({ comment }) {
   const { loggedInUser } = useContext(UserContext);
@@ -45,22 +46,24 @@ function CommentCard({ comment }) {
     <>
       {hideComment ? null : (
         <li className="comment-card">
+          <div className="comment-details">
           <div className="card-heading">
-            <p>{comment.author}</p> <p>•</p>
+            <p className="author">{comment.author}</p> <p>•</p>
             <p>
               <TimeAgo date={convertToISODate(comment.created_at)} />
             </p>
           </div>
           <p>{comment.body}</p>
           <div className="reactions">
-            <p className="pill">{comment.votes} votes</p>
+            <div className="votes">{comment.votes} votes</div>
+          </div>
           </div>
           {loggedInUser.username === comment.author && (
             <button
               className="delete-comment-button"
               onClick={handleDeleteClick}
             >
-              Delete comment
+              <img src={binIcon}/>
             </button>
           )}
         </li>
@@ -69,13 +72,14 @@ function CommentCard({ comment }) {
         <Modal.Body className="modal-body">
           Are you sure you want to delete this comment?
         </Modal.Body>
-
+<div className="modal-options">
         <button className="modal-button" onClick={handleCloseModal}>
           Cancel
         </button>
-        <button className="modal-button" onClick={handleDeleteComment}>
+        <button className="delete-modal-button" onClick={handleDeleteComment}>
           Delete
         </button>
+        </div>
       </Modal>
       <ToastMessage show={showToast} message={toastMessage} />
     </>

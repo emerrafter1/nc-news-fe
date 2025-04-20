@@ -5,14 +5,14 @@ import useApiRequest from "./useApiRequest";
 function Nav() {
   const { data: topics } = useApiRequest(getTopics);
   return (
-    <nav>
+    <nav id="sideNav">
       <ul id="topics-list">
-        <li key="all-topics">
+        <li className="topic-item" key="all-topics">
           <Link to="/">All</Link>
         </li>
         {(topics || []).map((topicItem) => {
           return (
-            <li key={topicItem.slug}>
+            <li className="topic-item" key={topicItem.slug}>
               <Link
                 to={`/articles/topic/${topicItem.slug}`}
                 className="topic-button"

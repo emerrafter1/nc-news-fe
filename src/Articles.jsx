@@ -86,8 +86,8 @@ function Articles() {
 
   return (
     <section className="articles-list">
-      <p>Test deploy</p>
-      {topic ? <p className="topic-heading">{topic}</p> : null}
+<div className="article-list-header">
+      {topic ? <h3 className="topic-heading">{topic}</h3> : null}
       <DropdownButton
         id="sort-by-dropdown"
         title={sortByLabel ? sortByLabel : "Sort by"}
@@ -100,7 +100,7 @@ function Articles() {
           );
         })}
       </DropdownButton>
-
+      </div>
       <ul className="article-list">
         {articles.map((article) => {
           return <ArticleCard article={article} key={article.article_id} />;
