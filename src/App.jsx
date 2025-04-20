@@ -1,4 +1,4 @@
-import "./App2.css";
+import "./App.css";
 import Header from "./Header";
 import Nav from "./Nav";
 import Articles from "./Articles";

@@ -39,13 +39,13 @@ function CommentAdder({ comments, setComments, article_id }) {
   return (
     <form id="add-comment-form" onSubmit={handleAddComment}>
       <div className="comment-form-elements">
-      <textarea
+      <textarea className="comment-textbox"
         placeholder="Add a comment"
         value={commentInput}
         onChange={handleCommentInputChange}
       ></textarea>
       {error ? <p className="error">{error}</p> : null}
-      <button type="submit">Comment</button>
+      <button className="comment-button" type="submit">Comment</button>
       </div>
     </form>
   );
